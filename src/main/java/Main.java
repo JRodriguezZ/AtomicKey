@@ -1,3 +1,4 @@
+import controller.Village;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,25 +14,24 @@ import java.util.Random;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        AnchorPane root = FXMLLoader.load(getClass().getResource("fxml/gameWindow.fxml"));
-        primaryStage.setTitle("Hello World");
+    public void start(Stage stage) throws Exception{
+        FXMLLoader loader;
+        loader = new FXMLLoader(getClass().getResource("fxml/gameWindow.fxml"));
+        Parent root = loader.load();
+        stage.setTitle("Hello World");
 
-        ImageView imageView = new ImageView();
-        root.getChildren().add(imageView);
-//        imageView.setImage(new Image("images/villageBackground.gif"));
-        primaryStage.setResizable(false);
+        stage.setResizable(false);
 
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        Scene sc = new Scene(root);
+
+        Village village = loader.getController();
+        village.setScene(sc);
+        stage.setScene(sc);
+        stage.show();
     }
 
 
     public static void main(String[] args) {
-
-        Random r = new Random();
-        char c = (char)(r.nextInt('z' - 'a') + 'a');
-
         launch(args);
     }
 }

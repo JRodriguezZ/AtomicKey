@@ -19,6 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Village implements Initializable {
     private Scene scene;
@@ -41,9 +42,19 @@ public class Village implements Initializable {
                 bomb.clear(gc);
                 bomb.move();
                 bomb.render(gc);
+                if (bomb.getPosY() == 460) {
+                    bomb.clear(gc);
+                    gandhi.vidas--;
+
+                }
             }
 
             contador++;
+
+            if (gandhi.vidas == 0) {
+                System.out.println("HAS PERDIDO");
+            }
+
         }
     })
     );
@@ -65,7 +76,16 @@ public class Village implements Initializable {
 
     public void setScene(Scene sc) {
         scene = sc;
-        scene.getOnKeyPressed();
+        scene.setOnKeyPressed(keyEvent -> {
+            System.out.println(keyEvent.getCode().toString());
+            for (Bomb bomb : bombList) {
+                if (bomb.getValor().equals(keyEvent.getCode().toString())) {
+                    bomb.isPressed(keyEvent.getCode().toString(), gc);
+                }
+            }
+            System.out.println(gandhi.vidas);
+            bombList.removeIf(bomb -> bomb.getValor().equals(keyEvent.getCode().toString()));
+        });
 
     }
 }
