@@ -17,7 +17,6 @@ public class Menu implements Initializable {
     }
 
     public void marcadoraction(ActionEvent actionEvent) {
-
     }
 
     public void saliraction(ActionEvent actionEvent) {
