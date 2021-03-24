@@ -21,6 +21,5 @@ public class Menu implements Initializable {
     }
 
     public void saliraction(ActionEvent actionEvent) {
-
     }
 }
