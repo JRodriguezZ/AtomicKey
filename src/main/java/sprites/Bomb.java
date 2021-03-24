@@ -17,6 +17,7 @@ public class Bomb extends Sprite{
         Random r = new Random();
         char c = (char)(r.nextInt('Z' - 'A') + 'A');
         setImage(image);
+//        bombImage(c);
         this.valor = String.valueOf(c);
         velY = velocidad;
         System.out.println("Bomb letter: " + getValor());
