@@ -13,7 +13,6 @@ public class Menu implements Initializable {
     }
 
     public void playaction(ActionEvent actionEvent) {
-
     }
 
     public void marcadoraction(ActionEvent actionEvent) {
