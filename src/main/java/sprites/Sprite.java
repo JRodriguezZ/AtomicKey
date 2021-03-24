@@ -37,13 +37,6 @@ public abstract class Sprite {
     public double getPosY() {
         return posY;
     }
-
-    public void setWidth(double w) {
-        width = w;
-    }
-    public void setHeight(double y) {
-        height = y;
-    }
     public double getWidth() {
         return width;
     }

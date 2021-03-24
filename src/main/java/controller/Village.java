@@ -16,17 +16,18 @@ import sprites.Bomb;
 import sprites.Gandhi;
 
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Village implements Initializable {
     private Scene scene;
     private GraphicsContext gc;
     private Gandhi gandhi;
     private List<Bomb> bombList;
-    private int contador;
+    private int time;
+    private int bombasCaidas;
 
     @FXML Canvas mainCanvas;
     @FXML ImageView background;
@@ -35,26 +36,28 @@ public class Village implements Initializable {
         @Override
         public void handle(ActionEvent event) {
             gandhi.clear(gc);
-            gandhi.render(gc);
 
-            if (contador % 1000 == 0) bombList.add(new Bomb());
+            if (time % 1000 == 0) bombList.add(new Bomb(0.2f));
+
             for (Bomb bomb : bombList) {
                 bomb.clear(gc);
                 bomb.move();
                 bomb.render(gc);
-                if (bomb.getPosY() == 460) {
-                    bomb.clear(gc);
-                    gandhi.vidas--;
 
+                if (bomb.touchFloor()) {
+                    bomb.clear(gc);
+                    bombasCaidas++;
+                    gandhi.vidas--;
+                    System.out.println("Current HP: " + gandhi.vidas);
                 }
             }
+//            bombList.removeIf(Bomb::touchFloor);
 
-            contador++;
+//            gandhi.comprovarVida(gandhi.vidas);
 
-            if (gandhi.vidas == 0) {
-                System.out.println("HAS PERDIDO");
-            }
+            time++;
 
+            gandhi.render(gc);
         }
     })
     );
@@ -62,13 +65,11 @@ public class Village implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         background.setImage(new Image("images/villageBackground.gif"));
+        gandhi = new Gandhi(new Image("images/allah.png"));
 
         bombList = new ArrayList<>();
 
-        gandhi = new Gandhi(new Image("images/allah.png"));
-
         gc = mainCanvas.getGraphicsContext2D();
-        gandhi.render(gc);
 
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -78,14 +79,14 @@ public class Village implements Initializable {
         scene = sc;
         scene.setOnKeyPressed(keyEvent -> {
             System.out.println(keyEvent.getCode().toString());
+
             for (Bomb bomb : bombList) {
                 if (bomb.getValor().equals(keyEvent.getCode().toString())) {
                     bomb.isPressed(keyEvent.getCode().toString(), gc);
                 }
             }
-            System.out.println(gandhi.vidas);
+
             bombList.removeIf(bomb -> bomb.getValor().equals(keyEvent.getCode().toString()));
         });
-
     }
 }

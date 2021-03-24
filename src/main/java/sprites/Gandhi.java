@@ -9,8 +9,11 @@ public class Gandhi extends Sprite {
         super(image);
         setY(311);
         setX(300);
-        setHeight(100);
-        setWidth(500);
         this.vidas = 3;
+        System.out.println("Current HP: " + this.vidas);
+    }
+
+    public void comprovarVida(int hp){
+        if (hp == 0) System.out.println("-- HAS PERDIDO --");
     }
 }
