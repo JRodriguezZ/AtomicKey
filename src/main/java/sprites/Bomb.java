@@ -34,41 +34,93 @@ public class Bomb extends Sprite{
     }
 
     public boolean touchFloor(){
-        return getPosY() == 460;
+        return getPosY() > 460;
     }
 
     public String getValor() {
         return valor;
     }
 
-//    public void bombImage(char c) {
-//        switch (c) {
-//            case 'A' -> setImage(new Image("images/bombA.png"));
-//            case 'B' -> setImage(new Image("images/bombB.png"));
-//            case 'C' -> setImage(new Image("images/bombC.png"));
-//            case 'D' -> setImage(new Image("images/bombD.png"));
-//            case 'E' -> setImage(new Image("images/bombE.png"));
-//            case 'F' -> setImage(new Image("images/bombF.png"));
-//            case 'G' -> setImage(new Image("images/bombG.png"));
-//            case 'H' -> setImage(new Image("images/bombH.png"));
-//            case 'I' -> setImage(new Image("images/bombI.png"));
-//            case 'J' -> setImage(new Image("images/bombJ.png"));
-//            case 'K' -> setImage(new Image("images/bombK.png"));
-//            case 'L' -> setImage(new Image("images/bombL.png"));
-//            case 'M' -> setImage(new Image("images/bombM.png"));
-//            case 'N' -> setImage(new Image("images/bombN.png"));
-//            case 'O' -> setImage(new Image("images/bombO.png"));
-//            case 'P' -> setImage(new Image("images/bombP.png"));
-//            case 'Q' -> setImage(new Image("images/bombQ.png"));
-//            case 'R' -> setImage(new Image("images/bombR.png"));
-//            case 'S' -> setImage(new Image("images/bombS.png"));
-//            case 'T' -> setImage(new Image("images/bombT.png"));
-//            case 'U' -> setImage(new Image("images/bombU.png"));
-//            case 'V' -> setImage(new Image("images/bombV.png"));
-//            case 'W' -> setImage(new Image("images/bombW.png"));
-//            case 'X' -> setImage(new Image("images/bombX.png"));
-//            case 'Y' -> setImage(new Image("images/bombY.png"));
-//            case 'Z' -> setImage(new Image("images/bombZ.png"));
-//        }
-//    }
+    public void bombImage(char c) {
+        switch (c) {
+            case 'A':
+                setImage(new Image("images/bombA.png"));
+                break;
+            case 'B':
+                setImage(new Image("images/bombB.png"));
+                break;
+            case 'C':
+                setImage(new Image("images/bombC.png"));
+                break;
+            case 'D':
+                setImage(new Image("images/bombD.png"));
+                break;
+            case 'E':
+                setImage(new Image("images/bombE.png"));
+                break;
+            case 'F':
+                setImage(new Image("images/bombF.png"));
+                break;
+            case 'G':
+                setImage(new Image("images/bombG.png"));
+                break;
+            case 'H':
+                setImage(new Image("images/bombH.png"));
+                break;
+            case 'I':
+                setImage(new Image("images/bombI.png"));
+                break;
+            case 'J':
+                setImage(new Image("images/bombJ.png"));
+                break;
+            case 'K':
+                setImage(new Image("images/bombK.png"));
+                break;
+            case 'L':
+                setImage(new Image("images/bombL.png"));
+                break;
+            case 'M':
+                setImage(new Image("images/bombM.png"));
+                break;
+            case 'N':
+                setImage(new Image("images/bombN.png"));
+                break;
+            case 'O':
+                setImage(new Image("images/bombO.png"));
+                break;
+            case 'P':
+                setImage(new Image("images/bombP.png"));
+                break;
+            case 'Q':
+                setImage(new Image("images/bombQ.png"));
+                break;
+            case 'R':
+                setImage(new Image("images/bombR.png"));
+                break;
+            case 'S':
+                setImage(new Image("images/bombS.png"));
+                break;
+            case 'T':
+                setImage(new Image("images/bombT.png"));
+                break;
+            case 'U':
+                setImage(new Image("images/bombU.png"));
+                break;
+            case 'V':
+                setImage(new Image("images/bombV.png"));
+                break;
+            case 'W':
+                setImage(new Image("images/bombW.png"));
+                break;
+            case 'X':
+                setImage(new Image("images/bombX.png"));
+                break;
+            case 'Y':
+                setImage(new Image("images/bombY.png"));
+                break;
+            case 'Z':
+                setImage(new Image("images/bombZ.png"));
+                break;
+        }
+    }
 }

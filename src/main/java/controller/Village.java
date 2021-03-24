@@ -51,9 +51,10 @@ public class Village implements Initializable {
                     System.out.println("Current HP: " + gandhi.vidas);
                 }
             }
-//            bombList.removeIf(Bomb::touchFloor);
 
-//            gandhi.comprovarVida(gandhi.vidas);
+            bombList.removeIf(Bomb::touchFloor);
+
+            gandhi.comprovarVida(gandhi.vidas);
 
             time++;
 
