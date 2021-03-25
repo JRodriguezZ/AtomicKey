@@ -16,7 +16,6 @@ import sprites.Bomb;
 import sprites.Gandhi;
 
 import java.net.URL;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -54,7 +53,10 @@ public class Village implements Initializable {
 
             bombList.removeIf(Bomb::touchFloor);
 
-            gandhi.comprovarVida(gandhi.vidas);
+            if (!gandhi.conVida(gandhi.vidas)) {
+                System.out.println("-- HAS PERDIDO --");
+                timeline.stop();
+            }
 
             time++;
 

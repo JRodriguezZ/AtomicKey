@@ -13,7 +13,7 @@ public class Gandhi extends Sprite {
         System.out.println("Current HP: " + this.vidas);
     }
 
-    public void comprovarVida(int hp){
-        if (hp == 0) System.out.println("-- HAS PERDIDO --");
+    public boolean conVida(int hp){
+        return hp != 0;
     }
 }

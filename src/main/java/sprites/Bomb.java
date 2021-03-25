@@ -9,15 +9,15 @@ import java.util.Random;
 public class Bomb extends Sprite{
     private double velY;
     private String valor;
-    private Image image = new Image("images/bomb.png");
+//    private Image image = new Image("images/bomb.png");
 
     public Bomb(double velocidad) {
         setX(Math.random()*600);
         setY(-10);
         Random r = new Random();
         char c = (char)(r.nextInt('Z' - 'A') + 'A');
-        setImage(image);
-//        bombImage(c);
+//        setImage(image);
+        bombImage(c);
         this.valor = String.valueOf(c);
         velY = velocidad;
         System.out.println("Bomb letter: " + getValor());
@@ -108,7 +108,7 @@ public class Bomb extends Sprite{
                 setImage(new Image("images/bombU.png"));
                 break;
             case 'V':
-                setImage(new Image("images/bombV.png"));
+                setImage(new Image("images/bomb.png"));
                 break;
             case 'W':
                 setImage(new Image("images/bombW.png"));
