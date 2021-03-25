@@ -14,14 +14,14 @@ public class Main extends Application {
         //loader = new FXMLLoader(getClass().getResource("fxml/gameWindow.fxml"));
         loader = new FXMLLoader(getClass().getResource("fxml/menuWindow.fxml"));
         Parent root = loader.load();
-        stage.setTitle("Hello World");
+        stage.setTitle("Anele saves the village");
 
         stage.setResizable(false);
 
         Scene sc = new Scene(root);
 
-        //Village village = loader.getController();
-        //village.setScene(sc);
+//        Village village = loader.getController();
+//        village.setScene(sc);
         Menu menu = loader.getController();
         menu.setScene(sc);
         stage.setScene(sc);

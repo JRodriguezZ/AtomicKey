@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-
+<AnchorPane prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="RED" layoutX="8.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER" wrappingWidth="181.072265625">
+         <font>
+            <Font name="Dyuthi Regular" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="51.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+         <font>
+            <Font name="Dyuthi Regular" size="19.0" />
+         </font>
+      </Text>
+      <TextField layoutX="68.0" layoutY="70.0" prefHeight="36.0" prefWidth="65.0" />
+      <Button alignment="CENTER" layoutX="32.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" style="-: b;" text="Continue">
+         <font>
+            <Font name="Dyuthi Regular" size="16.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
