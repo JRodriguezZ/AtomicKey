@@ -15,13 +15,13 @@
             <Font name="Dyuthi Regular" size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="51.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Name">
+      <Text fill="WHITE" layoutX="20.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del jugador">
          <font>
             <Font name="Dyuthi Regular" size="19.0" />
          </font>
       </Text>
-      <TextField layoutX="68.0" layoutY="70.0" prefHeight="36.0" prefWidth="65.0" />
-      <Button alignment="CENTER" layoutX="32.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" style="-: b;" text="Continue">
+      <TextField layoutX="48.0" layoutY="70.0" prefHeight="36.0" prefWidth="105.0" />
+      <Button alignment="CENTER" layoutX="32.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" style="-: b;" text="Guardar y salir">
          <font>
             <Font name="Dyuthi Regular" size="16.0" />
          </font>
