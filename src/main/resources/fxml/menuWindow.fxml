@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="menuAnchorPane" minWidth="-Infinity" prefHeight="450.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Menu">
    <children>
-      <ImageView fx:id="menubackground" fitHeight="501.0" fitWidth="725.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="false" />
-      <Button fx:id="playbutton" layoutX="223.0" layoutY="172.0" mnemonicParsing="false" onAction="#playaction" prefHeight="54.0" prefWidth="280.0" text="Jugar">
+      <ImageView fx:id="menubackground" fitHeight="480.0" fitWidth="725.0" layoutY="-28.0" pickOnBounds="true" />
+      <Button fx:id="playbutton" layoutX="223.0" layoutY="146.0" mnemonicParsing="false" onAction="#playaction" prefHeight="54.0" prefWidth="280.0" text="Jugar">
          <font>
             <Font name="Dyuthi Regular" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="marcadorbutton" layoutX="223.0" layoutY="255.0" mnemonicParsing="false" onAction="#marcadoraction" prefHeight="54.0" prefWidth="280.0" text="Marcador">
+      <Button fx:id="marcadorbutton" layoutX="223.0" layoutY="229.0" mnemonicParsing="false" onAction="#marcadoraction" prefHeight="54.0" prefWidth="280.0" text="Marcador">
          <font>
             <Font name="Dyuthi Regular" size="24.0" />
          </font></Button>
-      <Button fx:id="salirbutton" layoutX="223.0" layoutY="335.0" mnemonicParsing="false" onAction="#saliraction" prefHeight="54.0" prefWidth="280.0" text="Salir">
+      <Button fx:id="salirbutton" layoutX="223.0" layoutY="309.0" mnemonicParsing="false" onAction="#saliraction" prefHeight="54.0" prefWidth="280.0" text="Salir">
          <font>
             <Font name="Dyuthi Regular" size="24.0" />
          </font></Button>
-      <Text layoutX="121.0" layoutY="115.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Anele saves the village" textAlignment="CENTER" wrappingWidth="483.0">
+      <Text layoutX="121.0" layoutY="89.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Anele saves the village" textAlignment="CENTER" wrappingWidth="483.0">
          <font>
             <Font name="Dyuthi Regular" size="49.0" />
          </font>

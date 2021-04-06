@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="170.0" prefWidth="200.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameOver">
    <children>
       <Text fill="RED" layoutX="8.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER" wrappingWidth="181.072265625">
          <font>
@@ -20,8 +20,8 @@
             <Font name="Dyuthi Regular" size="19.0" />
          </font>
       </Text>
-      <TextField layoutX="48.0" layoutY="70.0" prefHeight="36.0" prefWidth="105.0" />
-      <Button alignment="CENTER" layoutX="32.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" style="-: b;" text="Guardar y salir">
+      <TextField fx:id="playerName" layoutX="48.0" layoutY="70.0" prefHeight="36.0" prefWidth="105.0" />
+      <Button fx:id="botonGuardarSalir" alignment="CENTER" layoutX="32.0" layoutY="120.0" mnemonicParsing="false" onAction="#guardarSalir" prefHeight="25.0" prefWidth="137.0" style="-: b;" text="Guardar y salir">
          <font>
             <Font name="Dyuthi Regular" size="16.0" />
          </font>

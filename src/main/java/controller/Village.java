@@ -5,16 +5,21 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import sprites.Bomb;
 import sprites.Gandhi;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +35,7 @@ public class Village implements Initializable {
 
     @FXML Canvas mainCanvas;
     @FXML ImageView background;
+    @FXML Button buttonGuardarSalir;
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0017), new EventHandler<ActionEvent>(){
         @Override
@@ -53,10 +59,7 @@ public class Village implements Initializable {
 
             bombList.removeIf(Bomb::touchFloor);
 
-            if (!gandhi.conVida(gandhi.vidas)) {
-                System.out.println("-- HAS PERDIDO --");
-                timeline.stop();
-            }
+            comprovarVida();
 
             time++;
 
@@ -91,5 +94,30 @@ public class Village implements Initializable {
 
             bombList.removeIf(bomb -> bomb.getValor().equals(keyEvent.getCode().toString()));
         });
+    }
+
+    public void comprovarVida(){
+        if (!gandhi.conVida(gandhi.vidas)) {
+            System.out.println("-- HAS PERDIDO --");
+            timeline.stop();
+            AnchorPane loader = null;
+
+
+            try {
+                loader = FXMLLoader.load(getClass().getResource("/fxml/gameOver.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            Stage stage2 = new Stage();
+            stage2.setResizable(false);
+            stage2.setTitle("Has perdido");
+
+            stage2.setScene(new Scene(loader));
+            stage2.show();
+
+        }
+
     }
 }
