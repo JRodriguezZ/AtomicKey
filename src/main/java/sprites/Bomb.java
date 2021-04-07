@@ -2,7 +2,6 @@ package sprites;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.util.Random;
 

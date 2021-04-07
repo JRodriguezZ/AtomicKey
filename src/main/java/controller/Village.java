@@ -14,7 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import sprites.Bomb;
 import sprites.Gandhi;
@@ -36,6 +35,7 @@ public class Village implements Initializable {
     @FXML Canvas mainCanvas;
     @FXML ImageView background;
     @FXML Button buttonGuardarSalir;
+    @FXML AnchorPane gameAnchorPane;
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0017), new EventHandler<ActionEvent>(){
         @Override
@@ -59,7 +59,9 @@ public class Village implements Initializable {
 
             bombList.removeIf(Bomb::touchFloor);
 
+
             comprovarVida();
+
 
             time++;
 
@@ -100,24 +102,16 @@ public class Village implements Initializable {
         if (!gandhi.conVida(gandhi.vidas)) {
             System.out.println("-- HAS PERDIDO --");
             timeline.stop();
-            AnchorPane loader = null;
-
-
             try {
-                loader = FXMLLoader.load(getClass().getResource("/fxml/gameOver.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/gameOver.fxml"));
+                AnchorPane anchorPane = loader.load();
+                gameAnchorPane.getChildren().add(anchorPane);
+
+                GameOver gameOver = loader.getController();
+                gameOver.setScene(scene);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-            Stage stage2 = new Stage();
-            stage2.setResizable(false);
-            stage2.setTitle("Has perdido");
-
-            stage2.setScene(new Scene(loader));
-            stage2.show();
-
         }
-
     }
 }
