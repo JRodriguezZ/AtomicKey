@@ -46,9 +46,9 @@ public class Village implements Initializable {
         public void handle(ActionEvent event) {
             gandhi.clear(gc);
 
-            textPuntuacionJugador.setText(String.valueOf(puntuacionJugador));
-            textNivel.setText(String.valueOf(nivel));
+
             textVidas.setText(String.valueOf(gandhi.vidas));
+
 //            drawText("Puntuacion: ", 500, 25);
 //            drawText(String.valueOf(puntuacionJugador),450,50);
 
@@ -115,6 +115,7 @@ public class Village implements Initializable {
                 if (bomb.getValor().equals(keyEvent.getCode().toString())) {
                     bomb.isPressed(keyEvent.getCode().toString(), gc);
                     puntuacionJugador += 10;
+                    textPuntuacionJugador.setText(String.valueOf(puntuacionJugador));
                 }
             }
 
@@ -141,9 +142,14 @@ public class Village implements Initializable {
 
     private void comprovarNivel() {
         if (bombasLanzadas % 10 == 0) {
+            velocidad *= 1.3;
+            if (velocidad > 2) velocidad = 2;
+
+            dropRate *= 0.8;
+            if (dropRate < 200) dropRate = 200;
+
             nivel++;
-            velocidad *= 1.2;
-            dropRate *= 0.9;
+            textNivel.setText(String.valueOf(nivel));
             bombasLanzadas++;
         }
     }
