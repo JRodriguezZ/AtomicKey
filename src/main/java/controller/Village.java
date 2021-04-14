@@ -10,10 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import sprites.Bomb;
 import sprites.Gandhi;
@@ -29,20 +29,33 @@ public class Village implements Initializable {
     private GraphicsContext gc;
     private Gandhi gandhi;
     private List<Bomb> bombList;
-    private int time;
-    private int bombasCaidas;
+    private int time, dropRate;
+    private int bombasLanzadas;
+    private int puntuacionJugador;
+    private float velocidad;
+    private int nivel;
 
     @FXML Canvas mainCanvas;
-    @FXML ImageView background;
-    @FXML Button buttonGuardarSalir;
+    @FXML ImageView background, imageCorazon;
     @FXML AnchorPane gameAnchorPane;
+    @FXML Text textPuntuacionJugador, textNivel, textVidas;
+
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0017), new EventHandler<ActionEvent>(){
         @Override
         public void handle(ActionEvent event) {
             gandhi.clear(gc);
 
-            if (time % 1000 == 0) bombList.add(new Bomb(0.2f));
+            textPuntuacionJugador.setText(String.valueOf(puntuacionJugador));
+            textNivel.setText(String.valueOf(nivel));
+            textVidas.setText(String.valueOf(gandhi.vidas));
+//            drawText("Puntuacion: ", 500, 25);
+//            drawText(String.valueOf(puntuacionJugador),450,50);
+
+            if (time % dropRate == 0){
+                bombList.add(new Bomb(velocidad));
+                bombasLanzadas++;
+            }
 
             for (Bomb bomb : bombList) {
                 bomb.clear(gc);
@@ -51,7 +64,6 @@ public class Village implements Initializable {
 
                 if (bomb.touchFloor()) {
                     bomb.clear(gc);
-                    bombasCaidas++;
                     gandhi.vidas--;
                     System.out.println("Current HP: " + gandhi.vidas);
                 }
@@ -60,6 +72,7 @@ public class Village implements Initializable {
             bombList.removeIf(Bomb::touchFloor);
 
 
+            comprovarNivel();
             comprovarVida();
 
 
@@ -70,14 +83,24 @@ public class Village implements Initializable {
     })
     );
 
+    private void drawText(String s, int posX, int posY) {
+        gc.strokeText(s, posX, posY);
+        gc.clearRect(posX,posY,1000,50);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         background.setImage(new Image("images/villageBackground.gif"));
         gandhi = new Gandhi(new Image("images/allah.png"));
+        imageCorazon.setImage(new Image("images/corazon.png"));
 
         bombList = new ArrayList<>();
 
         gc = mainCanvas.getGraphicsContext2D();
+
+        velocidad = 0.2f;
+        nivel = 0;
+        dropRate = 1000;
 
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -91,6 +114,7 @@ public class Village implements Initializable {
             for (Bomb bomb : bombList) {
                 if (bomb.getValor().equals(keyEvent.getCode().toString())) {
                     bomb.isPressed(keyEvent.getCode().toString(), gc);
+                    puntuacionJugador += 10;
                 }
             }
 
@@ -112,6 +136,15 @@ public class Village implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void comprovarNivel() {
+        if (bombasLanzadas % 10 == 0) {
+            nivel++;
+            velocidad *= 1.2;
+            dropRate *= 0.9;
+            bombasLanzadas++;
         }
     }
 }

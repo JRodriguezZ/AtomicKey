@@ -29,8 +29,8 @@ public class GameOver implements Initializable {
             AnchorPane anchorPane = loader.load();
             gameOverAnchorPane.getChildren().add(anchorPane);
 
-            GameOver gameOver = loader.getController();
-            gameOver.setScene(scene);
+            Menu menu = loader.getController();
+            menu.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

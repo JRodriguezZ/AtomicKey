@@ -23,6 +23,7 @@ public class Menu implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menubackground.setImage(new Image("images/villa.png"));
+        playbutton.setDisable(false);
     }
 
     public void playaction(ActionEvent actionEvent) {
@@ -31,12 +32,14 @@ public class Menu implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/gameWindow.fxml"));
             AnchorPane anchorPane = loader.load();
             menuAnchorPane.getChildren().add(anchorPane);
+//            menuAnchorPane.getChildren().remove()
 
             Village village = loader.getController();
             village.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        playbutton.setDisable(true);
     }
 
     public void marcadoraction(ActionEvent actionEvent) {
