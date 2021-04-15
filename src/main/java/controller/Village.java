@@ -31,9 +31,9 @@ public class Village implements Initializable {
     private List<Bomb> bombList;
     private int time, dropRate;
     private int bombasLanzadas;
-    private int puntuacionJugador;
+    public static int puntuacionJugador;
     private float velocidad;
-    private int nivel;
+    public static int nivel;
 
     @FXML Canvas mainCanvas;
     @FXML ImageView background, imageCorazon;
@@ -99,8 +99,11 @@ public class Village implements Initializable {
         gc = mainCanvas.getGraphicsContext2D();
 
         velocidad = 0.2f;
-        nivel = 0;
+        nivel = 1;
         dropRate = 1000;
+
+        textNivel.setText(String.valueOf(nivel));
+        textPuntuacionJugador.setText(String.valueOf(puntuacionJugador));
 
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();

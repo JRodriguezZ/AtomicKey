@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,21 +10,40 @@
 
 <AnchorPane fx:id="gameOverAnchorPane" prefHeight="450.0" prefWidth="725.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameOver">
    <children>
-      <Text fill="RED" layoutX="8.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER" wrappingWidth="181.072265625">
+      <Text fill="RED" layoutX="155.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GAME OVER" textAlignment="CENTER" wrappingWidth="381.072265625">
          <font>
-            <Font name="Dyuthi Regular" size="36.0" />
+            <Font name="Dyuthi Regular" size="69.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="20.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del jugador">
+      <Text fill="WHITE" layoutX="227.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del jugador" textAlignment="CENTER" wrappingWidth="239.0">
          <font>
-            <Font name="Dyuthi Regular" size="19.0" />
+            <Font name="Dyuthi Regular" size="28.0" />
          </font>
       </Text>
-      <TextField fx:id="playerName" layoutX="48.0" layoutY="70.0" prefHeight="36.0" prefWidth="105.0" />
-      <Button fx:id="botonGuardarSalir" alignment="CENTER" layoutX="32.0" layoutY="120.0" mnemonicParsing="false" onAction="#guardarSalir" prefHeight="25.0" prefWidth="137.0" style="-: b;" text="Guardar y salir">
+      <TextField fx:id="playerName" layoutX="223.0" layoutY="244.0" prefHeight="45.0" prefWidth="239.0" />
+      <Button fx:id="botonGuardarSalir" alignment="CENTER" layoutX="227.0" layoutY="347.0" mnemonicParsing="false" onAction="#guardarSalir" prefHeight="56.0" prefWidth="239.0" style="-: b;" text="Guardar y salir">
          <font>
             <Font name="Dyuthi Regular" size="16.0" />
          </font>
       </Button>
+      <Text fill="WHITE" layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación:" wrappingWidth="185.0">
+         <font>
+            <Font name="Dyuthi Regular" size="35.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="432.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" textAlignment="CENTER" wrappingWidth="89.0">
+         <font>
+            <Font name="Dyuthi Regular" size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="puntuacionid" fill="WHITE" layoutX="201.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="126.0">
+         <font>
+            <Font name="Dyuthi Regular" size="38.0" />
+         </font></Text>
+      <Text fx:id="nivelid" fill="WHITE" layoutX="521.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="70.0">
+         <font>
+            <Font name="Dyuthi Regular" size="38.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
