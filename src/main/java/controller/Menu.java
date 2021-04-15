@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,10 +22,21 @@ public class Menu implements Initializable {
     @FXML AnchorPane menuAnchorPane;
     @FXML ImageView menubackground;
     private Scene scene;
+    public static String rutaMainTheme;
+    public static Media mediaMainTheme;
+    public static MediaPlayer playerMainTheme;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         menubackground.setImage(new Image("images/villa.png"));
         playbutton.setDisable(false);
+
+        rutaMainTheme = getClass().getClassLoader().getResource("music/AneleTheme.mp3").toExternalForm();
+        mediaMainTheme = new Media(rutaMainTheme);
+        playerMainTheme = new MediaPlayer(mediaMainTheme);
+        playerMainTheme.setVolume(0.2);
+        playerMainTheme.setAutoPlay(true);
+        playerMainTheme.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
     public void playaction(ActionEvent actionEvent) {
