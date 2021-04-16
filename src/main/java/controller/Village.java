@@ -99,8 +99,9 @@ public class Village implements Initializable {
         gc = mainCanvas.getGraphicsContext2D();
 
         velocidad = 0.2f;
-        nivel = 1;
         dropRate = 1000;
+        puntuacionJugador = 0;
+        nivel = 1;
 
         textNivel.setText(String.valueOf(nivel));
         textPuntuacionJugador.setText(String.valueOf(puntuacionJugador));
@@ -145,11 +146,11 @@ public class Village implements Initializable {
 
     private void comprovarNivel() {
         if (bombasLanzadas % 10 == 0) {
-            velocidad *= 1.3;
-            if (velocidad > 2) velocidad = 2;
+            velocidad += 0.05f;
+            if (velocidad > 0.8f) velocidad = 0.8f;
 
             dropRate *= 0.8;
-            if (dropRate < 200) dropRate = 200;
+            if (dropRate < 300) dropRate = 300;
 
             nivel++;
             textNivel.setText(String.valueOf(nivel));
