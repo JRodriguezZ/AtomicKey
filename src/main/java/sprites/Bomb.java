@@ -105,7 +105,7 @@ public class Bomb extends Sprite{
                 setImage(new Image("images/bombU.png"));
                 break;
             case 'V':
-                setImage(new Image("images/bomb.png"));
+                setImage(new Image("images/bombV.png"));
                 break;
             case 'W':
                 setImage(new Image("images/bombW.png"));
