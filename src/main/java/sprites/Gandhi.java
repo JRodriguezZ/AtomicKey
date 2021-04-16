@@ -8,7 +8,7 @@ public class Gandhi extends Sprite {
     public Gandhi(Image image) {
         super(image);
         setY(311);
-        setX(300);
+        setX(320);
         this.vidas = 3;
         System.out.println("Current HP: " + this.vidas);
     }

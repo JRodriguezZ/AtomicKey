@@ -18,13 +18,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Menu implements Initializable {
-    @FXML Button playbutton, marcadorbutton, salirbutton;
-    @FXML AnchorPane menuAnchorPane;
-    @FXML ImageView menubackground;
     private Scene scene;
     public static String rutaMainTheme;
     public static Media mediaMainTheme;
     public static MediaPlayer playerMainTheme;
+
+    @FXML Button playbutton, marcadorbutton, salirbutton;
+    @FXML AnchorPane menuAnchorPane;
+    @FXML ImageView menubackground;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

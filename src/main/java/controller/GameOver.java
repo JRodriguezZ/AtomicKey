@@ -16,13 +16,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameOver implements Initializable {
-    @FXML Button botonGuardarSalir;
-    @FXML AnchorPane gameOverAnchorPane;
-    @FXML Text puntuacionid,nivelid;
     private Scene scene;
     private String rutaGameOverTheme;
     private Media mediaGameOverTheme;
     private MediaPlayer playerGameOverTheme;
+
+    @FXML Button botonGuardarSalir;
+    @FXML AnchorPane gameOverAnchorPane;
+    @FXML Text puntuacionid, nivelid;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,7 +39,6 @@ public class GameOver implements Initializable {
     }
 
     public void guardarSalir(ActionEvent actionEvent) {
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menuWindow.fxml"));
             AnchorPane anchorPane = loader.load();

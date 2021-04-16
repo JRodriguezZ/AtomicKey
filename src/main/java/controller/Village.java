@@ -31,8 +31,8 @@ public class Village implements Initializable {
     private List<Bomb> bombList;
     private int time, dropRate;
     private int bombasLanzadas;
-    public static int puntuacionJugador;
     private float velocidad;
+    public static int puntuacionJugador;
     public static int nivel;
 
     @FXML Canvas mainCanvas;
@@ -46,11 +46,7 @@ public class Village implements Initializable {
         public void handle(ActionEvent event) {
             gandhi.clear(gc);
 
-
             textVidas.setText(String.valueOf(gandhi.vidas));
-
-//            drawText("Puntuacion: ", 500, 25);
-//            drawText(String.valueOf(puntuacionJugador),450,50);
 
             if (time % dropRate == 0){
                 bombList.add(new Bomb(velocidad));
@@ -71,7 +67,6 @@ public class Village implements Initializable {
 
             bombList.removeIf(Bomb::touchFloor);
 
-
             comprovarNivel();
             comprovarVida();
 
@@ -83,15 +78,10 @@ public class Village implements Initializable {
     })
     );
 
-    private void drawText(String s, int posX, int posY) {
-        gc.strokeText(s, posX, posY);
-        gc.clearRect(posX,posY,1000,50);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         background.setImage(new Image("images/villageBackground.gif"));
-        gandhi = new Gandhi(new Image("images/allah.png"));
+        gandhi = new Gandhi(new Image("images/anele.png"));
         imageCorazon.setImage(new Image("images/corazon.png"));
 
         bombList = new ArrayList<>();
