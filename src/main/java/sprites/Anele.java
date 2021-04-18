@@ -2,10 +2,10 @@ package sprites;
 
 import javafx.scene.image.Image;
 
-public class Gandhi extends Sprite {
+public class Anele extends Sprite {
     public int vidas;
 
-    public Gandhi(Image image) {
+    public Anele(Image image) {
         super(image);
         setY(311);
         setX(320);
