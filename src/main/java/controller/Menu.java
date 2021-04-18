@@ -32,6 +32,7 @@ public class Menu implements Initializable {
         menubackground.setImage(new Image("images/villa.png"));
         playbutton.setDisable(false);
 
+        //Se reproduce la musica en el menu y mientras se juega.
         rutaMainTheme = getClass().getClassLoader().getResource("music/AneleTheme.mp3").toExternalForm();
         mediaMainTheme = new Media(rutaMainTheme);
         playerMainTheme = new MediaPlayer(mediaMainTheme);
@@ -42,6 +43,7 @@ public class Menu implements Initializable {
 
     public void playaction(ActionEvent actionEvent) {
 
+        //Cuando se da al boton "Jugar" pasa de pantalla y le da el controlador al juego.
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/gameWindow.fxml"));
             AnchorPane anchorPane = loader.load();
@@ -60,6 +62,7 @@ public class Menu implements Initializable {
 
     }
 
+    //Cuando se da al boton "Salir" cierra el juego.
     public void saliraction(ActionEvent actionEvent) {
         Stage stage = (Stage) salirbutton.getScene().getWindow();
         stage.close();

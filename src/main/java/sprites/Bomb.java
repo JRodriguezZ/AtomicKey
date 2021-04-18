@@ -10,12 +10,16 @@ public class Bomb extends Sprite{
     private String valor;
 
     public Bomb(double velocidad) {
+        //Coloca una bomaba en una posicion aleatoria del eje horizontal.
         setX(Math.random()*600);
         setY(-40);
+        //Genera una letra aleatoria para la bomba y activa el metodo que le atribuye una imagen.
         Random r = new Random();
         char c = (char)(r.nextInt('Z' - 'A') + 'A');
         bombImage(c);
+        //La letra que ha generado se le asigna a la bomba.
         this.valor = String.valueOf(c);
+        //La velocidad que se le ha establecido al construir la bomba se le aplica.
         velY = velocidad;
         System.out.println("Bomb letter: " + getValor());
     }
@@ -26,11 +30,13 @@ public class Bomb extends Sprite{
     }
 
     public void isPressed(String s, GraphicsContext gc) {
+        //Compara la tecla que se ha pulsado con la letra que contiene la bomba y si coincide la limpia de la pantalla.
         if (s.equals(valor)) {
             clear(gc);
         }
     }
 
+    //Si la posicion vertical llega a cierto punto retorna un true que determina si la bomba ha tocado el suelo.
     public boolean touchFloor(){
         return getPosY() > 460;
     }
@@ -39,6 +45,7 @@ public class Bomb extends Sprite{
         return valor;
     }
 
+    //Dependiendo de la letra que le ha tocado carga la imagen correspondiente.
     public void bombImage(char c) {
         switch (c) {
             case 'A':

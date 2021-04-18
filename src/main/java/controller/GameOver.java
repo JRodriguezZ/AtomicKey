@@ -27,9 +27,13 @@ public class GameOver implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Se para la musica del menu y del juego.
+        Menu.playerMainTheme.stop();
+
         puntuacionid.setText(String.valueOf(Village.puntuacionJugador));
         nivelid.setText(String.valueOf(Village.nivel));
-        Menu.playerMainTheme.stop();
+
+         //Se inicia otra musica cundo se pasa a la pantalla de "Game Over".
         rutaGameOverTheme = getClass().getClassLoader().getResource("music/GameOverTheme.mp3").toExternalForm();
         mediaGameOverTheme = new Media(rutaGameOverTheme);
         playerGameOverTheme = new MediaPlayer(mediaGameOverTheme);
@@ -39,6 +43,7 @@ public class GameOver implements Initializable {
     }
 
     public void guardarSalir(ActionEvent actionEvent) {
+        //Cuando se le da al boton de "Guardar y salir" vuelve al menu.
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menuWindow.fxml"));
             AnchorPane anchorPane = loader.load();
